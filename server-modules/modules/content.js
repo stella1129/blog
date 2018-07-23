@@ -55,10 +55,9 @@ Content.contentList = async(req,res) => {
     } else {
         throw new Error('Can\'t find the data-Content')
     }
-} catch (error) {
+  } catch (error) {
     console.log(error)
-}
-
+  }
 }
 
 module.exports = Content;

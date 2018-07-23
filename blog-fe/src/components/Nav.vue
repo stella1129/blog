@@ -18,7 +18,6 @@ export default {
   display:flex;
   justify-content: flex-end;
   .item {
-    width: 45px;
     padding: 10px;
   }
 }

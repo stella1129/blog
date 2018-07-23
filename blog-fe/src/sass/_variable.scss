@@ -1,0 +1,10 @@
+@charset "utf-8";
+
+//===============全局基础变量定义=======================
+
+/// 移动端用计量单位
+/// @group common
+/// @example
+///   font-size: $ppr;
+///   font-size: $ppr * 1rem * 1px;
+$ppr: (750 / 16 / 1rem) !default;

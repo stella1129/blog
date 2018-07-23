@@ -8,6 +8,8 @@ var bodyParser = require('body-parser');
 var AV = require('leanengine');
 var app = express();
 
+const apiRouter = require('./api');
+
 app.use(express.static('public'));
 
 // 设置默认超时时间
@@ -23,6 +25,8 @@ app.get('/', function(req, res) {
   console.log("here")
   res.send("hello,world!");
 });
+
+app.use('/api', apiRouter);
 
 app.use(function(req, res, next) {
   // 如果任何一个路由都没有返回响应，则抛出一个 404 异常给后续的异常处理器

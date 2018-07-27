@@ -1,6 +1,9 @@
 <template>
   <div class="about">
-    <i class="pic1"></i>
+    <div class="pic1"></div>
+    <div class="text">
+      <p>sweet dream</p>
+    </div>
   </div>
 </template>
 
@@ -15,9 +18,16 @@ export default {
 @import '../sass/_variable.scss';
 
 .pic1 {
-  background: url('../assets/pic1.jpg');
+  background: url('../assets/2.jpg');
+  background-size: 100%;
   display: block;
   width: 100%;
-  height:800 / $ppr;
+  height:1370 / $ppr;
+}
+.text {
+  p {
+    font-size: 72 / $ppr;
+    margin-top: 20 / $ppr;
+  }
 }
 </style>

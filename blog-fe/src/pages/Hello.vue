@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <v-header></v-header>
+    <v-header :msg="msg" :introduce="intro"></v-header>
     <!-- <v-nav></v-nav> -->
     <h1>{{ msg }}</h1>
     <h2>hello content</h2>
@@ -18,13 +18,19 @@ export default {
   name: 'Hello',
   data () {
     return {
-      msg: 'Welcome to hello component'
+      msg: 'Welcome to hello component',
+      intro: '行到水穷处，坐看云起时'
     }
   },
   created () {
-    console.log('here')
-    console.log(this.$store)
     this.$store.dispatch('getAllContentList')
+  },
+  computed: {
+    curPage () {
+      console.log('test')
+      console.log(this.$store.state.contentList)
+      return this.$store.state.contentList
+    }
   }
 }
 </script>

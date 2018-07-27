@@ -14,11 +14,17 @@ export default {
 
 <style lang="scss">
 .nav {
+  margin: 0;
   list-style: none;
   display:flex;
   justify-content: flex-end;
   .item {
     padding: 10px;
+    text-decoration: none;
+    color:#fff;
+    &:hover{
+      color: #2c3e50;
+    }
   }
 }
 </style>

@@ -8,8 +8,18 @@ export default {
   getAllContentList ({commit}) {
     commit(types.REQUEST_CONTENT_LIST)
     axios.get('/' + 'api/contentAll').then(response => {
-      commit(types.GET_CONTENT_LIST_FAILURE, response.data.listLength)
+      commit(types.GET_CONTENT_LIST_LENGTH, response.data.listLength)
     }).catch(error => {
+      commit(types.GET_CONTENT_LIST_FAILURE, error)
+    })
+  },
+  getContentByPage ({commit}, page) {
+    commit(types.REQUEST_CONTENT_LIST, page)
+    axios.get('/' + 'api/contentList/' + page).then(
+      res => {
+        // console.log(res.data) // {page:,data:}
+        commit(types.GET_CONTENT_LIST, res.data.data)
+      }).catch(error => {
       commit(types.GET_CONTENT_LIST_FAILURE, error)
     })
   }

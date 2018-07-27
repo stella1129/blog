@@ -59,5 +59,40 @@ Content.contentList = async(req,res) => {
     console.log(error)
   }
 }
+//获取10篇文章
+Content.getTenContent = async(req,res) => {
+  let page = req.params.page;
+  const queryTenContent =  (page) => {
+    const query = new AV.Query('ContentList');// 创建查询实例
+    query.descending('createdAt');//创建时间的降序排列
+    query.skip((page - 1)*10);//跳过之前的以获取第page页的10条数据
+    query.limit(10) // 限制返回项数量
+    return query.find();
+  }
+  try {
+    const data = await queryTenContent(page);
+    if( data ) {
+      let arr = [];
+      for(let item of data) {
+        let result= {};
+        result.objectId = item.get('objectId')
+        result.title = item.get('title');
+        result.abstract = item.get('abstract')
+        result.author = item.get('author')
+        result.createdAt = item.get('createdAt').Format("yyyy-MM-dd hh:mm:ss")
+        arr.push(result);
+      }
+      let final_result = {};
+      final_result.page = page;
+      final_result.data = arr;
+      res.send(final_result)
+    }else {
+      throw new Error('Can\'t find the data=Content')
+    }
+
+  } catch (err) {
+    console.error(err)
+  } 
+}
 
 module.exports = Content;

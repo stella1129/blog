@@ -8,7 +8,7 @@ import {
 const state = {
   contentList: [],
   isFetching: false,
-  curPage: Number
+  curPage: Number // 是个function
 }
 
 const mutations = {

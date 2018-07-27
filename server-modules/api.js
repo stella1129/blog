@@ -9,5 +9,6 @@ const user = require('./modules/user');
 router.get('/hello', content.hello);
 //content
 router.get('/contentAll', content.contentList);
+router.get('/contentList/:page',content.getTenContent);
 
 module.exports = router;

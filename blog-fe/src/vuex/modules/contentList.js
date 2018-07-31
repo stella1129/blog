@@ -2,7 +2,9 @@ import {
   REQUEST_CONTENT_LIST,
   GET_CONTENT_LIST,
   GET_CONTENT_LIST_LENGTH,
-  GET_CONTENT_LIST_FAILURE
+  GET_CONTENT_LIST_FAILURE,
+  POST_ARTICLE,
+  POST_ARTICLE_FAILURE
 } from '../mutation-types'
 
 const state = {
@@ -25,6 +27,12 @@ const mutations = {
   },
   [GET_CONTENT_LIST_FAILURE] (state) {
     state.isFetching = false
+  },
+  [POST_ARTICLE] (state, data) {
+    state.contentList.push(data)
+  },
+  [POST_ARTICLE_FAILURE] (state) {
+    return state
   }
 }
 

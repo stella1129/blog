@@ -22,5 +22,24 @@ export default {
       }).catch(error => {
       commit(types.GET_CONTENT_LIST_FAILURE, error)
     })
+  },
+  // 获取文章
+  getArticle ({commit}, id) {
+    axios.get('/' + 'api/article/' + id)
+      .then(res => {
+        console.log(res)
+        commit(types.GET_ARTICLE, res.data)
+      }).catch(err => {
+        commit(types.GET_CONTENT_LIST_FAILURE, err)
+      })
+  },
+  // 发布文章
+  submitArticle ({commit}, data) {
+    axios.post('/' + 'api/article/submitArticle', data)
+      .then(res => {
+        commit(types.POST_ARTICLE, res.data)
+      }).catch(err => {
+        commit(types.POST_ARTICLE_FAILURE, err)
+      })
   }
 }

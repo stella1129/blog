@@ -95,4 +95,49 @@ Content.getTenContent = async(req,res) => {
   } 
 }
 
+//获取指定文章内容
+Content.article = async (req,res) => {
+  console.log("enter article")
+  const id = req.params.id;
+  const queryArticle = (id) => {
+    const query = new AV.Query('ContentList');
+    return query.get(id)
+  }
+  try {
+    const data = await queryArticle(id);
+    let result = {};
+    if(data) {
+      result.title = data.get('title');
+      result.content = data.get('content');
+      result.createdAt = data.get('createdAt').Format("yyyy-MM-dd");
+      res.send(result);
+    }else {
+      throw new Error('article can not found')
+    }
+  } catch(err) {
+      console.log(err);
+  }
+}
+
+let postContentList = AV.Object.extend('ContentList');
+Content.submitArticle = async (req,res) => {
+  let _post = {
+    title:req.body.title,
+    content: req.body.title,
+    abstract: req.body.abstract
+  }
+  if(!_post.title.trim() || !_post.content.trim() ) {
+     res.status(500).send('昵称和内容不可为空')
+  }
+  let myPost = new postContentList();
+  myPost.set('title', _post.title);
+  myPost.set('content', _post.content);
+  myPost.set('abstract',_post.abstract);
+  myPost.save().then(function(item){
+    console.log('objectId is ' + item.id);
+    res.send(item.id + " -> post successfully" );
+  },function(err){
+    res.status(500).send(error);
+  })
+}
 module.exports = Content;

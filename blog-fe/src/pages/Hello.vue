@@ -5,10 +5,10 @@
     <div>
       <ul class="main-list">
         <li v-for="(item, index) in contentList" :key="index" class="main-item">
-          <div class="list-item">
+          <router-link :to="{name:'article',params:{id: item.objectId}}" class="list-item">
             <div class="list-title">{{item.title}}</div>
             <div class="abstract">{{item.abstract}}</div>
-          </div>
+          </router-link>
           <div class="list-infos">
               <div class="list-author">{{item.author}}</div>
               <!-- 后续需要加过滤器 -->
@@ -52,6 +52,6 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style scoped lang="scss">
 @import '../assets/scss/hello.scss';
 </style>

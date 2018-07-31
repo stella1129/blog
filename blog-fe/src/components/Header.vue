@@ -36,6 +36,7 @@ p{
   height:500 / $ppr;
   .detail {
     color:#fff;
+    margin-top:72 / $ppr;
     .name{
       font-size: 72 / $ppr;
       padding:20 / $ppr;

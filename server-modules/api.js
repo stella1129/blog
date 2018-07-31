@@ -10,5 +10,8 @@ router.get('/hello', content.hello);
 //content
 router.get('/contentAll', content.contentList);
 router.get('/contentList/:page',content.getTenContent);
+//article
+router.get('/article/:id',content.article);
+router.post('/article/submitArticle',content.submitArticle);
 
 module.exports = router;

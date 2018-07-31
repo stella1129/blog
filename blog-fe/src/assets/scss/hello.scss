@@ -1,11 +1,30 @@
 
-
 .main-list {
-  background-color: aqua;
-  margin: 15 / $ppr;
+  margin: 36 / $ppr;
+  padding: 0;
   .main-item {
     list-style: none;
+    .list-item {
+      text-decoration: none;
+      color:#333333;
+      .list-title {
+        font-size: 108 / $ppr;
+      }
+      .abstract {
+        font-size: 54 / $ppr;
+      }
+    }
   }
-
+  .list-infos {
+    font-size: 36 / $ppr;
+    text-align: left;
+    .list-author {
+      display: inline-block;
+    }
+    .list-created {
+      display: inline-block;
+      margin-left: 48 / $ppr;
+    }
+  }
 }
 

@@ -6,7 +6,7 @@ import {
 
 const state = {
   content: '',
-  article: '',
+  title: '',
   createdAt: '',
   loading: true
 }

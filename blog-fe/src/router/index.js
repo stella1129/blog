@@ -4,6 +4,7 @@ import HelloWorld from '@/components/HelloWorld'
 import Hello from '@/pages/Hello'
 import About from '@/pages/About'
 import Article from '@/pages/Article'
+import Post from '@/pages/Post'
 
 Vue.use(Router)
 
@@ -23,6 +24,11 @@ export default new Router({
       path: '/about',
       name: 'About',
       component: About
+    },
+    {
+      path: '/post',
+      name: 'Post',
+      component: Post
     },
     {
       path: '/article/:id',

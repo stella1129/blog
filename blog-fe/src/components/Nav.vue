@@ -2,7 +2,8 @@
   <div class="navs">
     <ul class="nav">
       <li><router-link class="item" :to="{name: 'Hello'}">首页</router-link></li>
-      <li><router-link class="item" :to="{name:'About'}">关于</router-link></li>
+      <li><router-link class="item" :to="{name: 'About'}">关于</router-link></li>
+      <li><router-link class="item" :to="{name: 'Post'}">发布</router-link></li>
     </ul>
   </div>
 </template>
